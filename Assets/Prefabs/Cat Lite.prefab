@@ -1191,6 +1191,7 @@ GameObject:
   - component: {fileID: 3291481305440997214}
   - component: {fileID: 3291481305440997215}
   - component: {fileID: 3291481305440997210}
+  - component: {fileID: 3233008885756764624}
   m_Layer: 0
   m_Name: Cat Lite
   m_TagString: Untagged
@@ -1213,7 +1214,7 @@ Transform:
   - {fileID: 3291481305534178629}
   - {fileID: 3291481305534178567}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3291481305541429933
 Animator:
@@ -1277,6 +1278,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 20
+--- !u!114 &3233008885756764624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3291481305534151019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7639e2538ee84a2f917345ee7fe1a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exitObject: {fileID: 0}
+  catSenses: {fileID: 11400000, guid: ff684b0c579334d18a0e1abd19efeb6b, type: 2}
 --- !u!1 &3291481305534151021
 GameObject:
   m_ObjectHideFlags: 0

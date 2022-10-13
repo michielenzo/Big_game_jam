@@ -7,12 +7,15 @@ public class CatController : MonoBehaviour
 {
     private Rigidbody rb;
     Boolean isGrounded = true;
-    float jumpForce = 10f;
+    public float jumpForce = 10f;
+    private Camera cam;
 
     private void Start()
     {
         //get rigidbody component
         rb = GetComponent<Rigidbody>();
+        //get camera component
+        cam = Camera.main;
     }
 
     void Update()
@@ -35,6 +38,8 @@ public class CatController : MonoBehaviour
         {
             transform.Translate(Vector3.right * Time.deltaTime * 5);
         }
+        //change rotation of player to camera
+        transform.rotation = Quaternion.Euler(0, cam.transform.rotation.eulerAngles.y, 0);
         //jumping of the cat while grounded
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {

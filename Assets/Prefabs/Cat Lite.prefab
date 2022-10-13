@@ -1191,6 +1191,7 @@ GameObject:
   - component: {fileID: 3291481305440997214}
   - component: {fileID: 3291481305440997215}
   - component: {fileID: 3291481305440997210}
+  - component: {fileID: 3233008885756764624}
   m_Layer: 0
   m_Name: Cat Lite
   m_TagString: Player

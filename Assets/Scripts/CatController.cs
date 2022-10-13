@@ -8,6 +8,7 @@ public class CatController : MonoBehaviour
     private Rigidbody rb;
     Boolean isGrounded = true;
     public float jumpForce = 10f;
+    public float speed;
     private Camera cam;
     private Animator _animator;
     private static readonly int VerticalAxis = Animator.StringToHash("Blend");
@@ -27,7 +28,7 @@ public class CatController : MonoBehaviour
         //movement of the cat
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * 5);
+            transform.Translate(Vector3.forward * Time.deltaTime * speed);
             _animator.SetFloat(VerticalAxis, 1f);
         }
         else
@@ -36,15 +37,15 @@ public class CatController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(Vector3.back * Time.deltaTime * 5);
+            transform.Translate(Vector3.back * Time.deltaTime * speed);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left * Time.deltaTime * 5);
+            transform.Translate(Vector3.left * Time.deltaTime * speed);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right * Time.deltaTime * 5);
+            transform.Translate(Vector3.right * Time.deltaTime * speed);
         }
         //change rotation of player to camera
         transform.rotation = Quaternion.Euler(0, cam.transform.rotation.eulerAngles.y, 0);

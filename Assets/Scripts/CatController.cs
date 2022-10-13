@@ -9,6 +9,8 @@ public class CatController : MonoBehaviour
     Boolean isGrounded = true;
     public float jumpForce = 10f;
     private Camera cam;
+    private Animator _animator;
+    private static readonly int VerticalAxis = Animator.StringToHash("Blend");
 
     private void Start()
     {
@@ -16,6 +18,7 @@ public class CatController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         //get camera component
         cam = Camera.main;
+        _animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -25,6 +28,11 @@ public class CatController : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector3.forward * Time.deltaTime * 5);
+            _animator.SetFloat(VerticalAxis, 1f);
+        }
+        else
+        {
+            _animator.SetFloat(VerticalAxis, 0f);
         }
         if (Input.GetKey(KeyCode.S))
         {
@@ -46,12 +54,18 @@ public class CatController : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
+
+        if (isGrounded)
+        {
+            Debug.Log("Grounded");
+        }
+        else Debug.Log("Not Grounded");
     }
     
-    //check if cat collides with ground
-    private void OnCollisionEnter(Collision collision)
+    //check if cat touches ground
+    private void OnCollisionEnter(Collision other)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
         }
